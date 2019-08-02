@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4A067CDE22F2A68900676FAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A067CDD22F2A68900676FAD /* AudioToolbox.framework */; };
-		4A067CE222F2B5DD00676FAD /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A067CE122F2B5DD00676FAD /* test.mp3 */; };
 		4A12982122F3D1FC0015FC38 /* PlayAudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12982022F3D1FC0015FC38 /* PlayAudioUnit.swift */; };
 		4ACB71D022E6CC9A002F9A83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71CF22E6CC9A002F9A83 /* AppDelegate.swift */; };
 		4ACB71D222E6CC9A002F9A83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71D122E6CC9A002F9A83 /* ViewController.swift */; };
@@ -17,6 +16,7 @@
 		4ACB71E322E6CC9C002F9A83 /* audioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71E222E6CC9C002F9A83 /* audioTests.swift */; };
 		4ACB71EE22E6CC9C002F9A83 /* audioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71ED22E6CC9C002F9A83 /* audioUITests.swift */; };
 		4ACB71FC22E6CCF4002F9A83 /* PlayAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71FB22E6CCF4002F9A83 /* PlayAudio.swift */; };
+		4AFF36A722F43F16005E0541 /* PlayAudioBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		4A067CDD22F2A68900676FAD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		4A067CE122F2B5DD00676FAD /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = ../../../Music/test.mp3; sourceTree = "<group>"; };
 		4A12982022F3D1FC0015FC38 /* PlayAudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudioUnit.swift; sourceTree = "<group>"; };
 		4ACB71CC22E6CC9A002F9A83 /* audio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = audio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACB71CF22E6CC9A002F9A83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		4ACB71ED22E6CC9C002F9A83 /* audioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioUITests.swift; sourceTree = "<group>"; };
 		4ACB71EF22E6CC9C002F9A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ACB71FB22E6CCF4002F9A83 /* PlayAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudio.swift; sourceTree = "<group>"; };
+		4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudioBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 		4ACB71CE22E6CC9A002F9A83 /* audio */ = {
 			isa = PBXGroup;
 			children = (
-				4A067CE122F2B5DD00676FAD /* test.mp3 */,
 				4ACB71CF22E6CC9A002F9A83 /* AppDelegate.swift */,
 				4ACB71D122E6CC9A002F9A83 /* ViewController.swift */,
 				4ACB71FB22E6CCF4002F9A83 /* PlayAudio.swift */,
@@ -123,6 +122,7 @@
 				4ACB71D522E6CC9C002F9A83 /* Main.storyboard */,
 				4ACB71D822E6CC9C002F9A83 /* Info.plist */,
 				4ACB71D922E6CC9C002F9A83 /* audio.entitlements */,
+				4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */,
 			);
 			path = audio;
 			sourceTree = "<group>";
@@ -257,7 +257,6 @@
 			files = (
 				4ACB71D422E6CC9C002F9A83 /* Assets.xcassets in Resources */,
 				4ACB71D722E6CC9C002F9A83 /* Main.storyboard in Resources */,
-				4A067CE222F2B5DD00676FAD /* test.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +285,7 @@
 				4ACB71D022E6CC9A002F9A83 /* AppDelegate.swift in Sources */,
 				4A12982122F3D1FC0015FC38 /* PlayAudioUnit.swift in Sources */,
 				4ACB71FC22E6CCF4002F9A83 /* PlayAudio.swift in Sources */,
+				4AFF36A722F43F16005E0541 /* PlayAudioBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
