@@ -17,6 +17,7 @@
 		4ACB71E322E6CC9C002F9A83 /* audioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71E222E6CC9C002F9A83 /* audioTests.swift */; };
 		4ACB71EE22E6CC9C002F9A83 /* audioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71ED22E6CC9C002F9A83 /* audioUITests.swift */; };
 		4ACB71FC22E6CCF4002F9A83 /* PlayAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACB71FB22E6CCF4002F9A83 /* PlayAudio.swift */; };
+		4AD9312722FA6A2E00F32B5A /* PlayAL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9312622FA6A2E00F32B5A /* PlayAL.swift */; };
 		4AFF36A722F43F16005E0541 /* PlayAudioBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4ACB71ED22E6CC9C002F9A83 /* audioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioUITests.swift; sourceTree = "<group>"; };
 		4ACB71EF22E6CC9C002F9A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ACB71FB22E6CCF4002F9A83 /* PlayAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudio.swift; sourceTree = "<group>"; };
+		4AD9312622FA6A2E00F32B5A /* PlayAL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAL.swift; sourceTree = "<group>"; };
 		4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAudioBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 				4ACB71D822E6CC9C002F9A83 /* Info.plist */,
 				4ACB71D922E6CC9C002F9A83 /* audio.entitlements */,
 				4AFF36A622F43F16005E0541 /* PlayAudioBuffer.swift */,
+				4AD9312622FA6A2E00F32B5A /* PlayAL.swift */,
 				4A70985322F7D277001C2ECE /* PlayAudioSpeech.swift */,
 			);
 			path = audio;
@@ -287,6 +290,7 @@
 				4A70985422F7D277001C2ECE /* PlayAudioSpeech.swift in Sources */,
 				4ACB71D222E6CC9A002F9A83 /* ViewController.swift in Sources */,
 				4ACB71D022E6CC9A002F9A83 /* AppDelegate.swift in Sources */,
+				4AD9312722FA6A2E00F32B5A /* PlayAL.swift in Sources */,
 				4A12982122F3D1FC0015FC38 /* PlayAudioUnit.swift in Sources */,
 				4ACB71FC22E6CCF4002F9A83 /* PlayAudio.swift in Sources */,
 				4AFF36A722F43F16005E0541 /* PlayAudioBuffer.swift in Sources */,

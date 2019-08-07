@@ -14,7 +14,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let p = PlayAudioSpeech.init()
+        let p = PlayAL.init()
         p.start()
     }
 
