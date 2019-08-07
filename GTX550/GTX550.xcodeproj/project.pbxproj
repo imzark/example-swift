@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A11CF9822B10E5B007065ED /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A11CF9722B10E5B007065ED /* LandViewController.swift */; };
+		4A11CF9B22B11F30007065ED /* CustomHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A11CF9A22B11F30007065ED /* CustomHoverView.swift */; };
+		4A68CC0922B35F6D00AD28D9 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A68CC0822B35F6D00AD28D9 /* ProgressBarView.swift */; };
+		4A7EC83422AE5F95000B897D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EC83322AE5F95000B897D /* AppDelegate.swift */; };
+		4A7EC83622AE5F95000B897D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EC83522AE5F95000B897D /* PlayViewController.swift */; };
+		4A7EC83822AE5F96000B897D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EC83722AE5F96000B897D /* Assets.xcassets */; };
+		4A7EC83B22AE5F96000B897D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EC83922AE5F96000B897D /* Main.storyboard */; };
+		4A7EC85022AE6216000B897D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC84F22AE6216000B897D /* AudioToolbox.framework */; };
+		4A7EC85222AE6236000B897D /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC85122AE6236000B897D /* SDL2.framework */; };
+		4A7EC86422AE69BA000B897D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86322AE69BA000B897D /* libz.tbd */; };
+		4A7EC86622AE69C0000B897D /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86522AE69C0000B897D /* libbz2.tbd */; };
+		4A7EC86822AE69C6000B897D /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86722AE69C6000B897D /* libiconv.2.tbd */; };
+		4A7EC86A22AE6A77000B897D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86922AE6A77000B897D /* CoreMedia.framework */; };
+		4AAE2F7322B342BD001E89E3 /* MoveableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE2F7222B342BD001E89E3 /* MoveableView.swift */; };
+		4AAF10E622B4E17900177427 /* AudioDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF10E522B4E17900177427 /* AudioDecoder.swift */; };
+		4AAF110822B7988100177427 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF110722B7988100177427 /* AudioManager.swift */; };
+		4AAF110A22B7AB7D00177427 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAF110922B7AB7D00177427 /* Accelerate.framework */; };
+		4ADF073622AE6E8A003510F6 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 4ADF073422AE6E8A003510F6 /* lib */; };
+		4ADF073722AE6E8A003510F6 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4ADF073522AE6E8A003510F6 /* include */; };
+		4ADF074022AE6E92003510F6 /* libavformat.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073822AE6E92003510F6 /* libavformat.58.dylib */; };
+		4ADF074122AE6E92003510F6 /* libpostproc.55.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073922AE6E92003510F6 /* libpostproc.55.dylib */; };
+		4ADF074222AE6E92003510F6 /* libavdevice.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073A22AE6E92003510F6 /* libavdevice.58.dylib */; };
+		4ADF074322AE6E92003510F6 /* libswresample.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073B22AE6E92003510F6 /* libswresample.3.dylib */; };
+		4ADF074422AE6E92003510F6 /* libswscale.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073C22AE6E92003510F6 /* libswscale.5.dylib */; };
+		4ADF074522AE6E92003510F6 /* libavutil.56.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073D22AE6E92003510F6 /* libavutil.56.dylib */; };
+		4ADF074622AE6E92003510F6 /* libavcodec.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073E22AE6E92003510F6 /* libavcodec.58.dylib */; };
+		4ADF074722AE6E92003510F6 /* libavfilter.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF073F22AE6E92003510F6 /* libavfilter.7.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A11CF9722B10E5B007065ED /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
+		4A11CF9A22B11F30007065ED /* CustomHoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverView.swift; sourceTree = "<group>"; };
+		4A68CC0822B35F6D00AD28D9 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		4A7EC83022AE5F95000B897D /* GTX550.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTX550.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A7EC83322AE5F95000B897D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4A7EC83522AE5F95000B897D /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		4A7EC83722AE5F96000B897D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A7EC83A22AE5F96000B897D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A7EC83C22AE5F96000B897D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A7EC83D22AE5F96000B897D /* GTX550.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTX550.entitlements; sourceTree = "<group>"; };
+		4A7EC84322AE5FA1000B897D /* GTX550-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GTX550-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A7EC84F22AE6216000B897D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4A7EC85122AE6236000B897D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
+		4A7EC86322AE69BA000B897D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4A7EC86522AE69C0000B897D /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		4A7EC86722AE69C6000B897D /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		4A7EC86922AE6A77000B897D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4AAE2F7222B342BD001E89E3 /* MoveableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableView.swift; sourceTree = "<group>"; };
+		4AAF10E522B4E17900177427 /* AudioDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDecoder.swift; sourceTree = "<group>"; };
+		4AAF110722B7988100177427 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		4AAF110922B7AB7D00177427 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		4ADF073422AE6E8A003510F6 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
+		4ADF073522AE6E8A003510F6 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		4ADF073822AE6E92003510F6 /* libavformat.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.58.dylib; path = FFmpeg/lib/libavformat.58.dylib; sourceTree = "<group>"; };
+		4ADF073922AE6E92003510F6 /* libpostproc.55.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpostproc.55.dylib; path = FFmpeg/lib/libpostproc.55.dylib; sourceTree = "<group>"; };
+		4ADF073A22AE6E92003510F6 /* libavdevice.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.58.dylib; path = FFmpeg/lib/libavdevice.58.dylib; sourceTree = "<group>"; };
+		4ADF073B22AE6E92003510F6 /* libswresample.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.3.dylib; path = FFmpeg/lib/libswresample.3.dylib; sourceTree = "<group>"; };
+		4ADF073C22AE6E92003510F6 /* libswscale.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.5.dylib; path = FFmpeg/lib/libswscale.5.dylib; sourceTree = "<group>"; };
+		4ADF073D22AE6E92003510F6 /* libavutil.56.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.56.dylib; path = FFmpeg/lib/libavutil.56.dylib; sourceTree = "<group>"; };
+		4ADF073E22AE6E92003510F6 /* libavcodec.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.58.dylib; path = FFmpeg/lib/libavcodec.58.dylib; sourceTree = "<group>"; };
+		4ADF073F22AE6E92003510F6 /* libavfilter.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.7.dylib; path = FFmpeg/lib/libavfilter.7.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A7EC82D22AE5F95000B897D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AAF110A22B7AB7D00177427 /* Accelerate.framework in Frameworks */,
+				4ADF074022AE6E92003510F6 /* libavformat.58.dylib in Frameworks */,
+				4ADF074122AE6E92003510F6 /* libpostproc.55.dylib in Frameworks */,
+				4ADF074222AE6E92003510F6 /* libavdevice.58.dylib in Frameworks */,
+				4ADF074322AE6E92003510F6 /* libswresample.3.dylib in Frameworks */,
+				4ADF074422AE6E92003510F6 /* libswscale.5.dylib in Frameworks */,
+				4ADF074522AE6E92003510F6 /* libavutil.56.dylib in Frameworks */,
+				4ADF074622AE6E92003510F6 /* libavcodec.58.dylib in Frameworks */,
+				4ADF074722AE6E92003510F6 /* libavfilter.7.dylib in Frameworks */,
+				4A7EC86A22AE6A77000B897D /* CoreMedia.framework in Frameworks */,
+				4A7EC86822AE69C6000B897D /* libiconv.2.tbd in Frameworks */,
+				4A7EC86622AE69C0000B897D /* libbz2.tbd in Frameworks */,
+				4A7EC86422AE69BA000B897D /* libz.tbd in Frameworks */,
+				4A7EC85222AE6236000B897D /* SDL2.framework in Frameworks */,
+				4A7EC85022AE6216000B897D /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A11CF9422B10E0C007065ED /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EC83C22AE5F96000B897D /* Info.plist */,
+				4A7EC83D22AE5F96000B897D /* GTX550.entitlements */,
+				4A7EC83722AE5F96000B897D /* Assets.xcassets */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		4A11CF9522B10E27007065ED /* PlayView */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EC83522AE5F95000B897D /* PlayViewController.swift */,
+			);
+			path = PlayView;
+			sourceTree = "<group>";
+		};
+		4A11CF9622B10E40007065ED /* LandView */ = {
+			isa = PBXGroup;
+			children = (
+				4A11CF9722B10E5B007065ED /* LandViewController.swift */,
+				4AAF10E522B4E17900177427 /* AudioDecoder.swift */,
+				4AAF110722B7988100177427 /* AudioManager.swift */,
+			);
+			path = LandView;
+			sourceTree = "<group>";
+		};
+		4A11CF9922B11F15007065ED /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				4A11CF9A22B11F30007065ED /* CustomHoverView.swift */,
+				4AAE2F7222B342BD001E89E3 /* MoveableView.swift */,
+				4A68CC0822B35F6D00AD28D9 /* ProgressBarView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		4A7EC82722AE5F95000B897D = {
+			isa = PBXGroup;
+			children = (
+				4A7EC86B22AE6B3A000B897D /* FFmpeg */,
+				4A7EC83222AE5F95000B897D /* GTX550 */,
+				4A7EC83122AE5F95000B897D /* Products */,
+				4A7EC84E22AE6216000B897D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4A7EC83122AE5F95000B897D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EC83022AE5F95000B897D /* GTX550.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A7EC83222AE5F95000B897D /* GTX550 */ = {
+			isa = PBXGroup;
+			children = (
+				4A11CF9922B11F15007065ED /* CustomView */,
+				4A11CF9622B10E40007065ED /* LandView */,
+				4A11CF9522B10E27007065ED /* PlayView */,
+				4A7EC83322AE5F95000B897D /* AppDelegate.swift */,
+				4A11CF9422B10E0C007065ED /* Support Files */,
+				4A7EC83922AE5F96000B897D /* Main.storyboard */,
+				4A7EC84322AE5FA1000B897D /* GTX550-Bridging-Header.h */,
+			);
+			path = GTX550;
+			sourceTree = "<group>";
+		};
+		4A7EC84E22AE6216000B897D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4AAF110922B7AB7D00177427 /* Accelerate.framework */,
+				4ADF073E22AE6E92003510F6 /* libavcodec.58.dylib */,
+				4ADF073A22AE6E92003510F6 /* libavdevice.58.dylib */,
+				4ADF073F22AE6E92003510F6 /* libavfilter.7.dylib */,
+				4ADF073822AE6E92003510F6 /* libavformat.58.dylib */,
+				4ADF073D22AE6E92003510F6 /* libavutil.56.dylib */,
+				4ADF073922AE6E92003510F6 /* libpostproc.55.dylib */,
+				4ADF073B22AE6E92003510F6 /* libswresample.3.dylib */,
+				4ADF073C22AE6E92003510F6 /* libswscale.5.dylib */,
+				4A7EC86922AE6A77000B897D /* CoreMedia.framework */,
+				4A7EC86722AE69C6000B897D /* libiconv.2.tbd */,
+				4A7EC86522AE69C0000B897D /* libbz2.tbd */,
+				4A7EC86322AE69BA000B897D /* libz.tbd */,
+				4A7EC85122AE6236000B897D /* SDL2.framework */,
+				4A7EC84F22AE6216000B897D /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A7EC86B22AE6B3A000B897D /* FFmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF073522AE6E8A003510F6 /* include */,
+				4ADF073422AE6E8A003510F6 /* lib */,
+			);
+			path = FFmpeg;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A7EC82F22AE5F95000B897D /* GTX550 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A7EC84022AE5F96000B897D /* Build configuration list for PBXNativeTarget "GTX550" */;
+			buildPhases = (
+				4A7EC82C22AE5F95000B897D /* Sources */,
+				4A7EC82D22AE5F95000B897D /* Frameworks */,
+				4A7EC82E22AE5F95000B897D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTX550;
+			productName = GTX550;
+			productReference = 4A7EC83022AE5F95000B897D /* GTX550.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A7EC82822AE5F95000B897D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Harry Tang";
+				TargetAttributes = {
+					4A7EC82F22AE5F95000B897D = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = 4A7EC82B22AE5F95000B897D /* Build configuration list for PBXProject "GTX550" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A7EC82722AE5F95000B897D;
+			productRefGroup = 4A7EC83122AE5F95000B897D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A7EC82F22AE5F95000B897D /* GTX550 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A7EC82E22AE5F95000B897D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7EC83822AE5F96000B897D /* Assets.xcassets in Resources */,
+				4ADF073622AE6E8A003510F6 /* lib in Resources */,
+				4ADF073722AE6E8A003510F6 /* include in Resources */,
+				4A7EC83B22AE5F96000B897D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A7EC82C22AE5F95000B897D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A7EC83622AE5F95000B897D /* PlayViewController.swift in Sources */,
+				4A68CC0922B35F6D00AD28D9 /* ProgressBarView.swift in Sources */,
+				4AAF110822B7988100177427 /* AudioManager.swift in Sources */,
+				4A7EC83422AE5F95000B897D /* AppDelegate.swift in Sources */,
+				4AAE2F7322B342BD001E89E3 /* MoveableView.swift in Sources */,
+				4AAF10E622B4E17900177427 /* AudioDecoder.swift in Sources */,
+				4A11CF9B22B11F30007065ED /* CustomHoverView.swift in Sources */,
+				4A11CF9822B10E5B007065ED /* LandViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A7EC83922AE5F96000B897D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A7EC83A22AE5F96000B897D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A7EC83E22AE5F96000B897D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A7EC83F22AE5F96000B897D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4A7EC84122AE5F96000B897D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MPRS425DHF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/GTX550",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/include",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/GTX550/Support Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/FFmpeg/lib",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goubaa.GTX550;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GTX550/GTX550-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4A7EC84222AE5F96000B897D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MPRS425DHF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/GTX550",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/include",
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/GTX550/Support Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/FFmpeg/lib",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goubaa.GTX550;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GTX550/GTX550-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A7EC82B22AE5F95000B897D /* Build configuration list for PBXProject "GTX550" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A7EC83E22AE5F96000B897D /* Debug */,
+				4A7EC83F22AE5F96000B897D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A7EC84022AE5F96000B897D /* Build configuration list for PBXNativeTarget "GTX550" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A7EC84122AE5F96000B897D /* Debug */,
+				4A7EC84222AE5F96000B897D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A7EC82822AE5F95000B897D /* Project object */;
+}

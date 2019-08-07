@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0BA48E22A54555005B8F6E /* VideoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0BA48D22A54555005B8F6E /* VideoDecoder.swift */; };
+		4A1295E822A610FE001E52BB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1295E722A610FE001E52BB /* CoreMedia.framework */; };
+		4A1295EC22A6110F001E52BB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1295EB22A6110F001E52BB /* AudioToolbox.framework */; };
+		4A1295F022A61127001E52BB /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1295EF22A61127001E52BB /* libbz2.tbd */; };
+		4A1295F222A6112E001E52BB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1295F122A6112E001E52BB /* libz.tbd */; };
+		4A12960622A621A4001E52BB /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 4A12960422A621A4001E52BB /* lib */; };
+		4A12960722A621A4001E52BB /* include in Resources */ = {isa = PBXBuildFile; fileRef = 4A12960522A621A4001E52BB /* include */; };
+		4A12963522A63658001E52BB /* libswresample.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12962D22A63658001E52BB /* libswresample.3.dylib */; };
+		4A12963622A63658001E52BB /* libavutil.56.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12962E22A63658001E52BB /* libavutil.56.dylib */; };
+		4A12963722A63658001E52BB /* libavfilter.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12962F22A63658001E52BB /* libavfilter.7.dylib */; };
+		4A12963822A63658001E52BB /* libavcodec.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963022A63658001E52BB /* libavcodec.58.dylib */; };
+		4A12963922A63658001E52BB /* libavformat.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963122A63658001E52BB /* libavformat.58.dylib */; };
+		4A12963A22A63658001E52BB /* libpostproc.55.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963222A63658001E52BB /* libpostproc.55.dylib */; };
+		4A12963B22A63658001E52BB /* libavdevice.58.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963322A63658001E52BB /* libavdevice.58.dylib */; };
+		4A12963C22A63658001E52BB /* libswscale.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963422A63658001E52BB /* libswscale.5.dylib */; };
+		4A65B45022A66C7C00E5BA93 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4A65B44F22A66C7C00E5BA93 /* Shader.metal */; };
+		4A6B46DD22A63E0D00891F35 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6B46DC22A63E0D00891F35 /* VideoToolbox.framework */; };
+		4A97FDF422AE19600001B92E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97FDF322AE19600001B92E /* SDL2.framework */; };
+		4ACAF55822AB51E50084D0FF /* 35.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 4ACAF55722AB51E50084D0FF /* 35.pcm */; };
+		4ACAF55A22AC98230084D0FF /* 1557799167887.aac in Resources */ = {isa = PBXBuildFile; fileRef = 4ACAF55922AC98230084D0FF /* 1557799167887.aac */; };
+		4AEEB38E22AAB053003FFBF0 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEB38D22AAB053003FFBF0 /* AudioController.swift */; };
+		4AEEB39522AAC211003FFBF0 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AEEB39422AAC211003FFBF0 /* ApplicationServices.framework */; };
+		4AF2FFC822A5302A0015CE04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2FFC722A5302A0015CE04 /* AppDelegate.swift */; };
+		4AF2FFCA22A5302A0015CE04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2FFC922A5302A0015CE04 /* ViewController.swift */; };
+		4AF2FFCC22A5302B0015CE04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF2FFCB22A5302B0015CE04 /* Assets.xcassets */; };
+		4AF2FFCF22A5302B0015CE04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF2FFCD22A5302B0015CE04 /* Main.storyboard */; };
+		4AF2FFD822A532EF0015CE04 /* PlayerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2FFD722A532EF0015CE04 /* PlayerWindow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A0BA48D22A54555005B8F6E /* VideoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDecoder.swift; sourceTree = "<group>"; };
+		4A1295E722A610FE001E52BB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4A1295EB22A6110F001E52BB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4A1295EF22A61127001E52BB /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		4A1295F122A6112E001E52BB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		4A1295F922A61750001E52BB /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		4A12960422A621A4001E52BB /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lib; sourceTree = "<group>"; };
+		4A12960522A621A4001E52BB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		4A12960822A62216001E52BB /* GTX660-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GTX660-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A12962D22A63658001E52BB /* libswresample.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswresample.3.dylib; path = FFmpeg/lib/libswresample.3.dylib; sourceTree = "<group>"; };
+		4A12962E22A63658001E52BB /* libavutil.56.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavutil.56.dylib; path = FFmpeg/lib/libavutil.56.dylib; sourceTree = "<group>"; };
+		4A12962F22A63658001E52BB /* libavfilter.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavfilter.7.dylib; path = FFmpeg/lib/libavfilter.7.dylib; sourceTree = "<group>"; };
+		4A12963022A63658001E52BB /* libavcodec.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavcodec.58.dylib; path = FFmpeg/lib/libavcodec.58.dylib; sourceTree = "<group>"; };
+		4A12963122A63658001E52BB /* libavformat.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavformat.58.dylib; path = FFmpeg/lib/libavformat.58.dylib; sourceTree = "<group>"; };
+		4A12963222A63658001E52BB /* libpostproc.55.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpostproc.55.dylib; path = FFmpeg/lib/libpostproc.55.dylib; sourceTree = "<group>"; };
+		4A12963322A63658001E52BB /* libavdevice.58.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libavdevice.58.dylib; path = FFmpeg/lib/libavdevice.58.dylib; sourceTree = "<group>"; };
+		4A12963422A63658001E52BB /* libswscale.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libswscale.5.dylib; path = FFmpeg/lib/libswscale.5.dylib; sourceTree = "<group>"; };
+		4A65B44F22A66C7C00E5BA93 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		4A6B46DC22A63E0D00891F35 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		4A97FDF322AE19600001B92E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDL2.framework; sourceTree = "<group>"; };
+		4ACAF55722AB51E50084D0FF /* 35.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = 35.pcm; sourceTree = "<group>"; };
+		4ACAF55922AC98230084D0FF /* 1557799167887.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1557799167887.aac; sourceTree = "<group>"; };
+		4AEEB38D22AAB053003FFBF0 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		4AEEB39422AAC211003FFBF0 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		4AF2FFC422A5302A0015CE04 /* GTX660.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTX660.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF2FFC722A5302A0015CE04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AF2FFC922A5302A0015CE04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AF2FFCB22A5302B0015CE04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AF2FFCE22A5302B0015CE04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AF2FFD022A5302B0015CE04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF2FFD122A5302B0015CE04 /* GTX660.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GTX660.entitlements; sourceTree = "<group>"; };
+		4AF2FFD722A532EF0015CE04 /* PlayerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindow.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AF2FFC122A5302A0015CE04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A97FDF422AE19600001B92E /* SDL2.framework in Frameworks */,
+				4AEEB39522AAC211003FFBF0 /* ApplicationServices.framework in Frameworks */,
+				4A12963522A63658001E52BB /* libswresample.3.dylib in Frameworks */,
+				4A6B46DD22A63E0D00891F35 /* VideoToolbox.framework in Frameworks */,
+				4A12963622A63658001E52BB /* libavutil.56.dylib in Frameworks */,
+				4A12963722A63658001E52BB /* libavfilter.7.dylib in Frameworks */,
+				4A12963822A63658001E52BB /* libavcodec.58.dylib in Frameworks */,
+				4A12963922A63658001E52BB /* libavformat.58.dylib in Frameworks */,
+				4A12963A22A63658001E52BB /* libpostproc.55.dylib in Frameworks */,
+				4A12963B22A63658001E52BB /* libavdevice.58.dylib in Frameworks */,
+				4A12963C22A63658001E52BB /* libswscale.5.dylib in Frameworks */,
+				4A1295F222A6112E001E52BB /* libz.tbd in Frameworks */,
+				4A1295F022A61127001E52BB /* libbz2.tbd in Frameworks */,
+				4A1295EC22A6110F001E52BB /* AudioToolbox.framework in Frameworks */,
+				4A1295E822A610FE001E52BB /* CoreMedia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A1295E622A610FE001E52BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A97FDF322AE19600001B92E /* SDL2.framework */,
+				4AEEB39422AAC211003FFBF0 /* ApplicationServices.framework */,
+				4A12963022A63658001E52BB /* libavcodec.58.dylib */,
+				4A12963322A63658001E52BB /* libavdevice.58.dylib */,
+				4A12962F22A63658001E52BB /* libavfilter.7.dylib */,
+				4A12963122A63658001E52BB /* libavformat.58.dylib */,
+				4A12962E22A63658001E52BB /* libavutil.56.dylib */,
+				4A12963222A63658001E52BB /* libpostproc.55.dylib */,
+				4A12962D22A63658001E52BB /* libswresample.3.dylib */,
+				4A12963422A63658001E52BB /* libswscale.5.dylib */,
+				4A1295F922A61750001E52BB /* libiconv.2.tbd */,
+				4A1295F122A6112E001E52BB /* libz.tbd */,
+				4A1295EF22A61127001E52BB /* libbz2.tbd */,
+				4A6B46DC22A63E0D00891F35 /* VideoToolbox.framework */,
+				4A1295EB22A6110F001E52BB /* AudioToolbox.framework */,
+				4A1295E722A610FE001E52BB /* CoreMedia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A12960022A62166001E52BB /* GTX660-Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "GTX660-Example";
+			sourceTree = "<group>";
+		};
+		4A12960122A62170001E52BB /* FFmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				4A12960522A621A4001E52BB /* include */,
+				4A12960422A621A4001E52BB /* lib */,
+			);
+			path = FFmpeg;
+			sourceTree = "<group>";
+		};
+		4AF2FFBB22A5302A0015CE04 = {
+			isa = PBXGroup;
+			children = (
+				4A12960122A62170001E52BB /* FFmpeg */,
+				4A12960022A62166001E52BB /* GTX660-Example */,
+				4AF2FFC622A5302A0015CE04 /* GTX660 */,
+				4AF2FFC522A5302A0015CE04 /* Products */,
+				4A1295E622A610FE001E52BB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4AF2FFC522A5302A0015CE04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AF2FFC422A5302A0015CE04 /* GTX660.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AF2FFC622A5302A0015CE04 /* GTX660 */ = {
+			isa = PBXGroup;
+			children = (
+				4ACAF55922AC98230084D0FF /* 1557799167887.aac */,
+				4ACAF55722AB51E50084D0FF /* 35.pcm */,
+				4AF2FFC722A5302A0015CE04 /* AppDelegate.swift */,
+				4AF2FFC922A5302A0015CE04 /* ViewController.swift */,
+				4AF2FFCB22A5302B0015CE04 /* Assets.xcassets */,
+				4AF2FFCD22A5302B0015CE04 /* Main.storyboard */,
+				4AF2FFD022A5302B0015CE04 /* Info.plist */,
+				4AF2FFD122A5302B0015CE04 /* GTX660.entitlements */,
+				4AF2FFD722A532EF0015CE04 /* PlayerWindow.swift */,
+				4A0BA48D22A54555005B8F6E /* VideoDecoder.swift */,
+				4A12960822A62216001E52BB /* GTX660-Bridging-Header.h */,
+				4A65B44F22A66C7C00E5BA93 /* Shader.metal */,
+				4AEEB38D22AAB053003FFBF0 /* AudioController.swift */,
+			);
+			path = GTX660;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AF2FFC322A5302A0015CE04 /* GTX660 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF2FFD422A5302B0015CE04 /* Build configuration list for PBXNativeTarget "GTX660" */;
+			buildPhases = (
+				4AF2FFC022A5302A0015CE04 /* Sources */,
+				4AF2FFC122A5302A0015CE04 /* Frameworks */,
+				4AF2FFC222A5302A0015CE04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTX660;
+			productName = GTX660;
+			productReference = 4AF2FFC422A5302A0015CE04 /* GTX660.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AF2FFBC22A5302A0015CE04 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Harry Tang";
+				TargetAttributes = {
+					4AF2FFC322A5302A0015CE04 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4AF2FFBF22A5302A0015CE04 /* Build configuration list for PBXProject "GTX660" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AF2FFBB22A5302A0015CE04;
+			productRefGroup = 4AF2FFC522A5302A0015CE04 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AF2FFC322A5302A0015CE04 /* GTX660 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AF2FFC222A5302A0015CE04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ACAF55822AB51E50084D0FF /* 35.pcm in Resources */,
+				4A12960622A621A4001E52BB /* lib in Resources */,
+				4ACAF55A22AC98230084D0FF /* 1557799167887.aac in Resources */,
+				4AF2FFCC22A5302B0015CE04 /* Assets.xcassets in Resources */,
+				4AF2FFCF22A5302B0015CE04 /* Main.storyboard in Resources */,
+				4A12960722A621A4001E52BB /* include in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AF2FFC022A5302A0015CE04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A65B45022A66C7C00E5BA93 /* Shader.metal in Sources */,
+				4AF2FFD822A532EF0015CE04 /* PlayerWindow.swift in Sources */,
+				4AF2FFCA22A5302A0015CE04 /* ViewController.swift in Sources */,
+				4A0BA48E22A54555005B8F6E /* VideoDecoder.swift in Sources */,
+				4AEEB38E22AAB053003FFBF0 /* AudioController.swift in Sources */,
+				4AF2FFC822A5302A0015CE04 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AF2FFCD22A5302B0015CE04 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AF2FFCE22A5302B0015CE04 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AF2FFD222A5302B0015CE04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AF2FFD322A5302B0015CE04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4AF2FFD522A5302B0015CE04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MPRS425DHF;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GTX660",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/include",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = GTX660/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/lib",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FFmpeg/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.goubaa.GTX660;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/GTX660/GTX660-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4AF2FFD622A5302B0015CE04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = MPRS425DHF;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GTX660",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/include",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = GTX660/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"${PROJECT_DIR}/FFmpeg/lib",
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FFmpeg/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.goubaa.GTX660;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/GTX660/GTX660-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AF2FFBF22A5302A0015CE04 /* Build configuration list for PBXProject "GTX660" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF2FFD222A5302B0015CE04 /* Debug */,
+				4AF2FFD322A5302B0015CE04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF2FFD422A5302B0015CE04 /* Build configuration list for PBXNativeTarget "GTX660" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF2FFD522A5302B0015CE04 /* Debug */,
+				4AF2FFD622A5302B0015CE04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AF2FFBC22A5302A0015CE04 /* Project object */;
+}

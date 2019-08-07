@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A3C531522F824A8000E5974 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C531422F824A8000E5974 /* Shader.metal */; };
+		4AD680F322FB0E8800E9DEFE /* VideoDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD680F222FB0E8800E9DEFE /* VideoDecoder.swift */; };
 		4AF5AAED22F8187300034897 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5AAEC22F8187300034897 /* AppDelegate.swift */; };
 		4AF5AAEF22F8187300034897 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5AAEE22F8187300034897 /* ViewController.swift */; };
 		4AF5AAF122F8187400034897 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF5AAF022F8187400034897 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		4A3C531422F824A8000E5974 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		4AD680F222FB0E8800E9DEFE /* VideoDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDecoder.swift; sourceTree = "<group>"; };
 		4AF5AAE922F8187300034897 /* video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = video.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF5AAEC22F8187300034897 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF5AAEE22F8187300034897 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				4AF5AAEE22F8187300034897 /* ViewController.swift */,
 				4AF5AAF022F8187400034897 /* Assets.xcassets */,
 				4AF5AAF222F8187400034897 /* Main.storyboard */,
+				4AD680F222FB0E8800E9DEFE /* VideoDecoder.swift */,
 				4AF5AAF522F8187400034897 /* Info.plist */,
 				4AF5AAF622F8187400034897 /* video.entitlements */,
 				4A3C531422F824A8000E5974 /* Shader.metal */,
@@ -259,6 +262,7 @@
 			files = (
 				4A3C531522F824A8000E5974 /* Shader.metal in Sources */,
 				4AF5AAEF22F8187300034897 /* ViewController.swift in Sources */,
+				4AD680F322FB0E8800E9DEFE /* VideoDecoder.swift in Sources */,
 				4AF5AAED22F8187300034897 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
