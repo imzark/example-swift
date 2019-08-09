@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		4A11CF9822B10E5B007065ED /* LandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A11CF9722B10E5B007065ED /* LandViewController.swift */; };
 		4A11CF9B22B11F30007065ED /* CustomHoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A11CF9A22B11F30007065ED /* CustomHoverView.swift */; };
+		4A4ECD6722FD63E1003DC45A /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4ECD6622FD63E1003DC45A /* AudioPlayer.swift */; };
 		4A68CC0922B35F6D00AD28D9 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A68CC0822B35F6D00AD28D9 /* ProgressBarView.swift */; };
 		4A7EC83422AE5F95000B897D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EC83322AE5F95000B897D /* AppDelegate.swift */; };
 		4A7EC83622AE5F95000B897D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EC83522AE5F95000B897D /* PlayViewController.swift */; };
 		4A7EC83822AE5F96000B897D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EC83722AE5F96000B897D /* Assets.xcassets */; };
 		4A7EC83B22AE5F96000B897D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EC83922AE5F96000B897D /* Main.storyboard */; };
 		4A7EC85022AE6216000B897D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC84F22AE6216000B897D /* AudioToolbox.framework */; };
-		4A7EC85222AE6236000B897D /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC85122AE6236000B897D /* SDL2.framework */; };
 		4A7EC86422AE69BA000B897D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86322AE69BA000B897D /* libz.tbd */; };
 		4A7EC86622AE69C0000B897D /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86522AE69C0000B897D /* libbz2.tbd */; };
 		4A7EC86822AE69C6000B897D /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7EC86722AE69C6000B897D /* libiconv.2.tbd */; };
@@ -39,6 +39,7 @@
 /* Begin PBXFileReference section */
 		4A11CF9722B10E5B007065ED /* LandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandViewController.swift; sourceTree = "<group>"; };
 		4A11CF9A22B11F30007065ED /* CustomHoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHoverView.swift; sourceTree = "<group>"; };
+		4A4ECD6622FD63E1003DC45A /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		4A68CC0822B35F6D00AD28D9 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		4A7EC83022AE5F95000B897D /* GTX550.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTX550.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7EC83322AE5F95000B897D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 				4A7EC86822AE69C6000B897D /* libiconv.2.tbd in Frameworks */,
 				4A7EC86622AE69C0000B897D /* libbz2.tbd in Frameworks */,
 				4A7EC86422AE69BA000B897D /* libz.tbd in Frameworks */,
-				4A7EC85222AE6236000B897D /* SDL2.framework in Frameworks */,
 				4A7EC85022AE6216000B897D /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +120,7 @@
 				4A11CF9722B10E5B007065ED /* LandViewController.swift */,
 				4AAF10E522B4E17900177427 /* AudioDecoder.swift */,
 				4AAF110722B7988100177427 /* AudioManager.swift */,
+				4A4ECD6622FD63E1003DC45A /* AudioPlayer.swift */,
 			);
 			path = LandView;
 			sourceTree = "<group>";
@@ -230,6 +231,11 @@
 					4A7EC82F22AE5F95000B897D = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -272,6 +278,7 @@
 			files = (
 				4A7EC83622AE5F95000B897D /* PlayViewController.swift in Sources */,
 				4A68CC0922B35F6D00AD28D9 /* ProgressBarView.swift in Sources */,
+				4A4ECD6722FD63E1003DC45A /* AudioPlayer.swift in Sources */,
 				4AAF110822B7988100177427 /* AudioManager.swift in Sources */,
 				4A7EC83422AE5F95000B897D /* AppDelegate.swift in Sources */,
 				4AAE2F7322B342BD001E89E3 /* MoveableView.swift in Sources */,
@@ -415,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "GTX550/Support Files/GTX550.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MPRS425DHF;
@@ -452,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "GTX550/Support Files/GTX550.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MPRS425DHF;

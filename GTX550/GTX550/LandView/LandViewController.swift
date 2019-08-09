@@ -13,7 +13,7 @@ class LandViewController: NSViewController {
 	@IBOutlet weak var openFileButton: CustomHoverView!
 	@IBOutlet weak var openURLButton: CustomHoverView!
 	
-	var audioDecoder: AudioManager = AudioManager()
+	var player: AudioPlayer = AudioPlayer()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -48,7 +48,8 @@ class LandViewController: NSViewController {
 //					playView.url = openPanel.urls[0].absoluteString
 //					NSApp.mainWindow?.contentViewController = playView
 					
-					self.audioDecoder.play()
+					self.player.start(openPanel.urls[0].absoluteString)
+          self.player.play()
 				}
 			}
 		}

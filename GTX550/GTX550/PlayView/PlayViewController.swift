@@ -34,7 +34,7 @@ class PlayViewController: NSViewController {
 	//
 	var audioDecoder: UnsafeMutablePointer<AVCodec>? = nil
 	
-	var wanted_spec: SDL_AudioSpec? = nil
+//  var wanted_spec: SDL_AudioSpec? = nil
 	var au_convert_ctx: OpaquePointer? = nil
 	var out_buffer: UnsafeMutablePointer<UInt8>? = nil
 	var out_buffer_size:Int32 = 0
@@ -144,64 +144,64 @@ class PlayViewController: NSViewController {
 	
 	func setupAudio() -> Bool {
 		// SDL hanlder
-		if SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0 {
-			print("Could not initialize SDL - \(String(describing: SDL_GetError()))\n")
-			return false
-		}
-		
-		let out_sample_rate:Int32 = (audioCodecCtx?.pointee.sample_rate)!
-		let out_channel_layout:UInt64 = UInt64(AV_CH_LAYOUT_STEREO)
-		let out_channels = av_get_channel_layout_nb_channels(out_channel_layout)
-		var out_nb_samples = (audioCodecCtx?.pointee.frame_size)!;
-		let out_sample_fmt:AVSampleFormat = AV_SAMPLE_FMT_S16
-		if out_nb_samples == 0 {
-			out_nb_samples = 1024
-		}
-		
-		out_buffer_size = av_samples_get_buffer_size(nil, out_channels, out_nb_samples, out_sample_fmt, 1)
-		let c = av_malloc(Int(MAX_AUDIO_FRAME_SIZE * 2))
-		out_buffer = c?.assumingMemoryBound(to: UInt8.self)
-		
-		wanted_spec = SDL_AudioSpec.init()
-		wanted_spec!.freq = out_sample_rate;
-		wanted_spec!.format = SDL_AudioFormat(AUDIO_S16SYS);
-		wanted_spec!.channels = Uint8(out_channels);
-		wanted_spec!.silence = 0;
-		wanted_spec!.samples =  Uint16(out_nb_samples);
-		wanted_spec!.callback = { (udata: UnsafeMutableRawPointer?, stream: UnsafeMutablePointer<UInt8>?, len:Int32) in
-			// 静音
-			SDL_memset(stream, 0, Int(len))
-			if audio_len == 0 {
-				return
-			}
-			var l = UInt32(len)
-			if len > Int32(audio_len) {
-				l = UInt32(audio_len)
-			}
-			SDL_MixAudio(stream, audio_pos, l, SDL_MIX_MAXVOLUME)
-			audio_pos = audio_pos! + Int(l)
-			audio_len -= l
-		}
-		wanted_spec!.userdata = UnsafeMutableRawPointer(audioCodecCtx);
-
-		if SDL_OpenAudio(&wanted_spec!, nil) < 0{
-			print("can't open audio.\n");
-			return false
-		}
-		
-		let in_channel_layout = av_get_default_channel_layout((audioCodecCtx?.pointee.channels)!);
-		//Swr
-		au_convert_ctx = swr_alloc()
-		au_convert_ctx = swr_alloc_set_opts(au_convert_ctx, Int64(out_channel_layout), out_sample_fmt, out_sample_rate, in_channel_layout, (audioCodecCtx?.pointee.sample_fmt)!, (audioCodecCtx?.pointee.sample_rate)!, 0, nil)
-		swr_init(au_convert_ctx);
-		
-		//Play
-		SDL_PauseAudio(1)
+//    if SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0 {
+//      print("Could not initialize SDL - \(String(describing: SDL_GetError()))\n")
+//      return false
+//    }
+//
+//    let out_sample_rate:Int32 = (audioCodecCtx?.pointee.sample_rate)!
+//    let out_channel_layout:UInt64 = UInt64(AV_CH_LAYOUT_STEREO)
+//    let out_channels = av_get_channel_layout_nb_channels(out_channel_layout)
+//    var out_nb_samples = (audioCodecCtx?.pointee.frame_size)!;
+//    let out_sample_fmt:AVSampleFormat = AV_SAMPLE_FMT_S16
+//    if out_nb_samples == 0 {
+//      out_nb_samples = 1024
+//    }
+//
+//    out_buffer_size = av_samples_get_buffer_size(nil, out_channels, out_nb_samples, out_sample_fmt, 1)
+//    let c = av_malloc(Int(MAX_AUDIO_FRAME_SIZE * 2))
+//    out_buffer = c?.assumingMemoryBound(to: UInt8.self)
+//
+//    wanted_spec = SDL_AudioSpec.init()
+//    wanted_spec!.freq = out_sample_rate;
+//    wanted_spec!.format = SDL_AudioFormat(AUDIO_S16SYS);
+//    wanted_spec!.channels = Uint8(out_channels);
+//    wanted_spec!.silence = 0;
+//    wanted_spec!.samples =  Uint16(out_nb_samples);
+//    wanted_spec!.callback = { (udata: UnsafeMutableRawPointer?, stream: UnsafeMutablePointer<UInt8>?, len:Int32) in
+//      // 静音
+//      SDL_memset(stream, 0, Int(len))
+//      if audio_len == 0 {
+//        return
+//      }
+//      var l = UInt32(len)
+//      if len > Int32(audio_len) {
+//        l = UInt32(audio_len)
+//      }
+//      SDL_MixAudio(stream, audio_pos, l, SDL_MIX_MAXVOLUME)
+//      audio_pos = audio_pos! + Int(l)
+//      audio_len -= l
+//    }
+//    wanted_spec!.userdata = UnsafeMutableRawPointer(audioCodecCtx);
+//
+//    if SDL_OpenAudio(&wanted_spec!, nil) < 0{
+//      print("can't open audio.\n");
+//      return false
+//    }
+//
+//    let in_channel_layout = av_get_default_channel_layout((audioCodecCtx?.pointee.channels)!);
+//    //Swr
+//    au_convert_ctx = swr_alloc()
+//    au_convert_ctx = swr_alloc_set_opts(au_convert_ctx, Int64(out_channel_layout), out_sample_fmt, out_sample_rate, in_channel_layout, (audioCodecCtx?.pointee.sample_fmt)!, (audioCodecCtx?.pointee.sample_rate)!, 0, nil)
+//    swr_init(au_convert_ctx);
+//
+//    //Play
+//    SDL_PauseAudio(1)
 		return true
 	}
 	
 	func decode()  {
-		SDL_PauseAudio(0)
+//    SDL_PauseAudio(0)
 		var frame:UnsafeMutablePointer<AVFrame>? = nil
 		let packet = av_packet_alloc()
 	
@@ -212,7 +212,7 @@ class PlayViewController: NSViewController {
 			ret = av_read_frame(formatContext, packet)
 			if ret < 0 {
 				isEOF = true
-				SDL_PauseAudio(1)
+//        SDL_PauseAudio(1)
 				DispatchQueue.main.async {
 					self.progress1.value = 100.0
 					self.progress.doubleValue = 100
@@ -238,7 +238,7 @@ class PlayViewController: NSViewController {
 					swr_convert(au_convert_ctx, &out_buffer, MAX_AUDIO_FRAME_SIZE, &data, (frame?.pointee.nb_samples)!);
 					
 					while audio_len > 0 {
-						SDL_Delay(1);
+//            SDL_Delay(1);
 					}
 					//Audio buffer length
 					audio_len = UInt32(out_buffer_size)
