@@ -49,7 +49,8 @@ class LandViewController: NSViewController {
 //					NSApp.mainWindow?.contentViewController = playView
 					
 					self.player.start(openPanel.urls[0].absoluteString)
-          self.player.play()
+					self.player.play()
+					self.player.play()
 				}
 			}
 		}

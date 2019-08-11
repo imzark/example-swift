@@ -42,7 +42,7 @@
     NSString * path4 = @"rtsp://184.72.239.149/vod/mp4://BigBuckBunny_175k.mov";
     NSString * path5 = @"rtmp://pull-g.kktv8.com/livekktv/100987038";
     NSString * path6 = @"http://221.228.226.5/14/z/w/y/y/zwyyobhyqvmwslabxyoaixvyubmekc/sh.yinyuetai.com/4599015ED06F94848EBF877EAAE13886.mp4";
-    arrUrls = @[path2,path0,path4,path6];
+    arrUrls = @[path0,path2,path4,path6];
     player = [XPlayer sharedPlayer];
    
     playRate = 1.0;

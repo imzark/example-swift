@@ -152,6 +152,7 @@
                 [lock unlock];
                 //用音频播放器播放
                 [audioPlayer openAudioFromQueue:tempData andWithDataSize:length andWithSampleRate:decoder.sampleRate andWithAbit:decoder.sampleSize andWithAchannel:decoder.channel];
+								NSLog(@"++++++++++++++%s data ", tempData);
                 free(tempData);
                 //这里设置openal内部缓存数据的大小  太大了视频延迟大  太小了视频会卡顿 根据实际情况调整
                 NSLog(@"++++++++++++++%d",audioPlayer.m_numqueued);

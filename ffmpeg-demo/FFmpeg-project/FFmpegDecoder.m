@@ -242,7 +242,7 @@ void copyDecodedFrame(unsigned char *src, unsigned char *dist,int linesize, int 
         [lock unlock];
         return 0;
     }
-    
+	printf("data-data: %s", data[0]);
     int outSize = av_samples_get_buffer_size(NULL,
                                              CHANNEL,
                                              len,

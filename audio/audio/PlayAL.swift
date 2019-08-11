@@ -56,7 +56,7 @@ class PlayAL {
   public func start () {
     var player = OpenALPlayer.init()
     // MARK: convert to a open-al format
-    loadLoopIntoBuffer(&player, "/Users/harry/Music/test.mp3" as CFString)
+    loadLoopIntoBuffer(&player, "/Users/harry/Music/1.mp3" as CFString)
     
     // MARK: set up openal buffer
     let alDevice = alcOpenDevice(nil)
@@ -142,6 +142,8 @@ class PlayAL {
       }
       buffers[0].mData = UnsafeMutableRawPointer(sampleBuffer + Int(totalFramesRead + UInt32(MemoryLayout<UInt16>.size)))
       ExtAudioFileRead(extAudioFile!, &framesRead, buffers.unsafeMutablePointer)
+//			print(buffers[0].mData)
+//			print(player.pointee.sampleBuffer?.pointee)
       totalFramesRead += framesRead
     } while (totalFramesRead < UInt32(fileLengthFrames))
     

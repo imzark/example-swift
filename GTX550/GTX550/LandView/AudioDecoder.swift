@@ -25,14 +25,16 @@ class AudioDecoder {
   var isPaused = false
   
   var pSwrCtx: OpaquePointer? = nil
-  
-  // out audio data
-  var audioChannels:Int32 = 0
-  var audioSampleRate:Int32 = 0
+	
   var MAX_AUDIO_FRAME_SIZE:Int32 = 192000
-  var out_buffer: UnsafeMutablePointer<UInt8>? = nil
+	
+	var out_buffer: UnsafeMutablePointer<UInt8>? = nil
   var out_buffer_size:Int32 = 0
-  
+	
+	// out audio data
+	var sampleSize: Int = 16
+	var sampleRate: Int32 = 44100
+	var channel: Int = 2
   
   func open(path: String) -> Bool {
     avformat_network_init()
@@ -77,13 +79,11 @@ class AudioDecoder {
     // sws
     pSwrCtx = swr_alloc()
     
-    var rate:Int32 = 44100
-    
-    if audioCodecCtx!.pointee.sample_rate != rate {
-      rate = audioCodecCtx!.pointee.sample_rate
+    if audioCodecCtx!.pointee.sample_rate != sampleRate {
+      sampleRate = audioCodecCtx!.pointee.sample_rate
     }
     
-    let out_sample_rate:Int32 = (audioCodecCtx?.pointee.sample_rate)!
+    let out_sample_rate:Int32 = sampleRate
     let out_channel_layout:UInt64 = UInt64(AV_CH_LAYOUT_STEREO)
     let out_channels = av_get_channel_layout_nb_channels(out_channel_layout)
     var out_nb_samples = (audioCodecCtx?.pointee.frame_size)!;
@@ -108,17 +108,7 @@ class AudioDecoder {
       0,
       nil
     )
-//    swr_alloc_set_opts(
-//      pSwrCtx,
-//      av_get_default_channel_layout(audioChannels),
-//      AV_SAMPLE_FMT_S16,  //采样大小 16位
-//      rate,        //采样率
-//      av_get_default_channel_layout((audioCodecCtx?.pointee.channels)!),
-//      (audioCodecCtx?.pointee.sample_fmt)!,// 样本类型
-//      (audioCodecCtx?.pointee.sample_rate)!,
-//      0,
-//      nil
-//    )
+		
     swr_init(pSwrCtx);
     
     if (audioStream!.pointee.time_base.den >= 1) && (audioStream!.pointee.time_base.num >= 1) {
@@ -140,17 +130,17 @@ class AudioDecoder {
     return true
   }
   
-  func decode(_ size: UnsafeMutablePointer<UInt32>, _ buffer: UnsafeMutablePointer<UInt8>) -> Bool  {
+  func decode(_ size: UnsafeMutablePointer<UInt32>, _ buffer: UnsafeMutablePointer<UInt8>) {
     var frame:UnsafeMutablePointer<AVFrame>? = nil
     let packet = av_packet_alloc()
     
     if isPaused {
-      return false
+      return
     }
     ret = av_read_frame(formatContext, packet)
     if ret < 0 {
       isEOF = true
-      return false
+      return
     }
     
     if (packet?.pointee.stream_index)! == audioStreamIndex {
@@ -163,13 +153,13 @@ class AudioDecoder {
       while ret2 >= 0 {
         ret2 = avcodec_receive_frame(audioCodecCtx, frame)
         if ret2 < 0 {
-          return false
+          return
         }
         playedTime = Double((frame?.pointee.pts)!) * timeBase
         
         var data = [UnsafePointer(frame?.pointee.data.0), UnsafePointer(frame?.pointee.data.1), UnsafePointer(frame?.pointee.data.2), UnsafePointer(frame?.pointee.data.3), UnsafePointer(frame?.pointee.data.4), UnsafePointer(frame?.pointee.data.5), UnsafePointer(frame?.pointee.data.6), UnsafePointer(frame?.pointee.data.7)]
         swr_convert(pSwrCtx, &out_buffer, MAX_AUDIO_FRAME_SIZE, &data, (frame?.pointee.nb_samples)!);
-        
+//				print("ret: \(ret)")
         size.pointee = UInt32(out_buffer_size)
         buffer.pointee = out_buffer!.pointee
       }
@@ -178,8 +168,6 @@ class AudioDecoder {
     av_packet_unref(packet)
     
     av_frame_free(&frame);
-    
-    return true
   }
   
 }
