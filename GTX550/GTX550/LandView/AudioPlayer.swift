@@ -31,21 +31,13 @@ class AudioPlayer {
     alGenSources(1, &source)
 		checkALError("alGenSources")
     
-    alSpeedOfSound(1.0);
-		checkALError("alSpeedOfSound")
-    alDopplerVelocity(1.0);
-		checkALError("alDopplerVelocity")
-    alDopplerFactor(1.0);
-		checkALError("alDopplerFactor")
-    alSourcef(source, AL_PITCH, 1.0);
-		checkALError("alSourcef")
     alSourcef(source, AL_GAIN, 1.0);
 		checkALError("alSourcef")
-    alSourcei(source, AL_LOOPING, AL_FALSE);
-		checkALError("alSourcei")
 //    alSourcef(source, AL_SOURCE_TYPE, ALfloat(AL_STREAMING));
 //		checkALError("alSourcef")
     
+    alListener3f(AL_POSITION, 0.0, 0.0, 0.0)
+    checkALError("Couldn't set listner position")
     if decoder.open(path: path) {
       print("success \n")
     }
@@ -56,6 +48,7 @@ class AudioPlayer {
 //    while !decoder.isEOF {
 			var len: UInt32 = 0
 			var buffer: UInt8 = UInt8.init()
+      var sampleBuffer = UnsafeMutablePointer<UInt16>.allocate(capacity: Int(decoder.out_buffer_size))
 			decoder.decode(&len, &buffer)
 			print("len: \(len) buffer: \(buffer)")
 //			print("size: \(decoder.sampleSize), rate: \(decoder.sampleRate), channel: \(decoder.channel)")
@@ -71,7 +64,7 @@ class AudioPlayer {
 					format = AL_FORMAT_STEREO16
 				}
 				print("rate: \(decoder.sampleRate)")
-				alBufferData(bufferID, format, &buffer, ALsizei(len), decoder.sampleRate)
+				alBufferData(bufferID, format, &sampleBuffer, ALsizei(len), decoder.sampleRate)
 				// error check
 				checkALError("alBufferData")
 				
@@ -85,13 +78,13 @@ class AudioPlayer {
 				checkALError("alGetSourcei")
 				print("state: \(state)")
 
-//				if state == AL_STOPPED || state == AL_PAUSED || state == AL_INITIAL {
-//					print("state: \(state)")
-//					if state != AL_PLAYING {
-//						alSourcePlay(source)
-//						checkALError("play fail")
-//					}
-//				}
+//        if state == AL_STOPPED || state == AL_PAUSED || state == AL_INITIAL {
+//          print("state: \(state)")
+//          if state != AL_PLAYING {
+//            alSourcePlay(source)
+//            checkALError("play fail")
+//          }
+//        }
 				
 			}
 			

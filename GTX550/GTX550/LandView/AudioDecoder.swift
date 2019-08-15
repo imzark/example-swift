@@ -160,6 +160,8 @@ class AudioDecoder {
         var data = [UnsafePointer(frame?.pointee.data.0), UnsafePointer(frame?.pointee.data.1), UnsafePointer(frame?.pointee.data.2), UnsafePointer(frame?.pointee.data.3), UnsafePointer(frame?.pointee.data.4), UnsafePointer(frame?.pointee.data.5), UnsafePointer(frame?.pointee.data.6), UnsafePointer(frame?.pointee.data.7)]
         swr_convert(pSwrCtx, &out_buffer, MAX_AUDIO_FRAME_SIZE, &data, (frame?.pointee.nb_samples)!);
 //				print("ret: \(ret)")
+//        print(out_buffer?.pointee)
+        print(frame?.pointee)
         size.pointee = UInt32(out_buffer_size)
         buffer.pointee = out_buffer!.pointee
       }

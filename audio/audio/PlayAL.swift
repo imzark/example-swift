@@ -56,7 +56,7 @@ class PlayAL {
   public func start () {
     var player = OpenALPlayer.init()
     // MARK: convert to a open-al format
-    loadLoopIntoBuffer(&player, "/Users/harry/Music/1.mp3" as CFString)
+    loadLoopIntoBuffer(&player, "/Users/harry/Desktop/new_mp3.mp3" as CFString)
     
     // MARK: set up openal buffer
     let alDevice = alcOpenDevice(nil)

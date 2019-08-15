@@ -24,7 +24,6 @@
 		4A12963C22A63658001E52BB /* libswscale.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A12963422A63658001E52BB /* libswscale.5.dylib */; };
 		4A65B45022A66C7C00E5BA93 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 4A65B44F22A66C7C00E5BA93 /* Shader.metal */; };
 		4A6B46DD22A63E0D00891F35 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6B46DC22A63E0D00891F35 /* VideoToolbox.framework */; };
-		4A97FDF422AE19600001B92E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A97FDF322AE19600001B92E /* SDL2.framework */; };
 		4ACAF55822AB51E50084D0FF /* 35.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 4ACAF55722AB51E50084D0FF /* 35.pcm */; };
 		4ACAF55A22AC98230084D0FF /* 1557799167887.aac in Resources */ = {isa = PBXBuildFile; fileRef = 4ACAF55922AC98230084D0FF /* 1557799167887.aac */; };
 		4AEEB38E22AAB053003FFBF0 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEEB38D22AAB053003FFBF0 /* AudioController.swift */; };
@@ -76,7 +75,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A97FDF422AE19600001B92E /* SDL2.framework in Frameworks */,
 				4AEEB39522AAC211003FFBF0 /* ApplicationServices.framework in Frameworks */,
 				4A12963522A63658001E52BB /* libswresample.3.dylib in Frameworks */,
 				4A6B46DD22A63E0D00891F35 /* VideoToolbox.framework in Frameworks */,

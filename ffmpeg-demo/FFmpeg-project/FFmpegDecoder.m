@@ -237,6 +237,7 @@ void copyDecodedFrame(unsigned char *src, unsigned char *dist,int linesize, int 
     uint8_t * data[1];
     [lock lock];
     data[0] = (uint8_t*)dataBuf;
+  printf(data);
     int len = swr_convert(pSwrCtx, data, 10000, (const uint8_t**)pPcm->data, pPcm->nb_samples);
     if (len < 0) {
         [lock unlock];

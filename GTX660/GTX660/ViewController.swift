@@ -33,42 +33,43 @@ class ViewController: NSViewController {
 	}
 	
 	func open() {
-		let uri = "http://127.0.0.1:8080/friends.s01e01.720p.bluray.x264.AAC-iHD.mp4";
+		let uri = "/Users/harry/Desktop/videos/a-asdasd-123.mp4";
 		if VideoDecoder.shared.start(uri) {
-			if VideoDecoder.shared.setAudio() {
-				DispatchQueue.main.asyncAfter(deadline: .now()+0.1 , execute: {
-					DispatchQueue.global().async {
-						VideoDecoder.shared.decode(100000)
-					}
-				})
-			}
+      DispatchQueue.main.asyncAfter(deadline: .now()+0.1 , execute: {
+        DispatchQueue.global().async {
+          VideoDecoder.shared.decode(1)
+        }
+      })
+      DispatchQueue.main.asyncAfter(deadline: .now()+1.1 , execute: {
+        self.trik()
+      })
 		}
 	}
 	
-	func decode() {
-		let uri = "http://127.0.0.1:8080/friends.s01e01.720p.bluray.x264.AAC-iHD.mp4";
-		if VideoDecoder.shared.start(uri) {
-			DispatchQueue.main.asyncAfter(deadline: .now()+0.01 , execute: {
-				VideoDecoder.shared.setAudio()
-				DispatchQueue.global().async {
-					while !VideoDecoder.shared.isEOF {
-						let vf = VideoDecoder.shared.decode(self.maxBufferedDuration)
-						for i in 0..<vf.count {
-							self.frames.append(vf[i])
-							self.bufferedDuration += vf[i].duration;
-						}
-						
-						if self.bufferedDuration > self.maxBufferedDuration {
-							break
-						}
-					}
-				}
-			})
-			DispatchQueue.main.asyncAfter(deadline: .now()+1.1 , execute: {
-				self.trik()
-			})
-		}
-	}
+//  func decode() {
+//    let uri = "http://127.0.0.1:8080/friends.s01e01.720p.bluray.x264.AAC-iHD.mp4";
+//    if VideoDecoder.shared.start(uri) {
+//      DispatchQueue.main.asyncAfter(deadline: .now()+0.01 , execute: {
+//        VideoDecoder.shared.setAudio()
+//        DispatchQueue.global().async {
+//          while !VideoDecoder.shared.isEOF {
+//            let vf = VideoDecoder.shared.decode(self.maxBufferedDuration)
+//            for i in 0..<vf.count {
+//              self.frames.append(vf[i])
+//              self.bufferedDuration += vf[i].duration;
+//            }
+//
+//            if self.bufferedDuration > self.maxBufferedDuration {
+//              break
+//            }
+//          }
+//        }
+//      })
+//      DispatchQueue.main.asyncAfter(deadline: .now()+1.1 , execute: {
+//        self.trik()
+//      })
+//    }
+//  }
 	
 	func getFrames()  {
 		if VideoDecoder.shared.opened {

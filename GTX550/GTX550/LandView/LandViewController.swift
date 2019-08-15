@@ -50,7 +50,7 @@ class LandViewController: NSViewController {
 					
 					self.player.start(openPanel.urls[0].absoluteString)
 					self.player.play()
-					self.player.play()
+          self.player.play()
 				}
 			}
 		}

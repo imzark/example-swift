@@ -9,21 +9,23 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let p = PlayAL.init()
-        p.start()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    // Do any additional setup after loading the view.
+    let p = PlayAL.init()
+    DispatchQueue.global().async {
+      p.start()
     }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+  }
+  
+  override var representedObject: Any? {
+    didSet {
+      // Update the view, if already loaded.
     }
-
-
+  }
+  
+  
 }
 

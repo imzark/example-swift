@@ -15,10 +15,6 @@ public struct Frame {
 	//	var type: FR
 }
 
-public struct AudioFrame {
-	var frame:AVFrame? = nil
-}
-
 public struct VideoFrame {
 	var width:Int32 = 0
 	var height:Int32 = 0
@@ -31,10 +27,6 @@ public struct VideoFrame {
 
 var hw_pix_fmt: AVPixelFormat? = nil
 var hw_device_ctx: UnsafeMutablePointer<AVBufferRef>? = nil
-var MAX_AUDIO_FRAME_SIZE:Int32 = 192000
-
-var audio_len: UInt32 = 0
-var audio_pos: UnsafeMutablePointer<UInt8>? = nil
 
 public func get_hw_format(ctx: UnsafeMutablePointer<AVCodecContext>?, pix_fmts: UnsafePointer<AVPixelFormat>?) -> AVPixelFormat {
 	var p: AVPixelFormat = AV_PIX_FMT_NONE
@@ -51,21 +43,6 @@ public func get_hw_format(ctx: UnsafeMutablePointer<AVCodecContext>?, pix_fmts: 
 	return p
 }
 
-public func fill_audio(udata: UnsafeMutableRawPointer?, stream: UnsafeMutablePointer<UInt8>?, len:Int32) {
-	
-	SDL_memset(stream, 0, Int(len))
-	
-	if audio_len == 0 {
-		return
-	}
-	var l = UInt32(len)
-	if len > Int32(audio_len) {
-		l = UInt32(audio_len)
-	}
-	SDL_MixAudio(stream, audio_pos, l, SDL_MIX_MAXVOLUME)
-	audio_pos = audio_pos! + Int(l)
-	audio_len -= l
-}
 
 class VideoDecoder {
 	//
@@ -90,26 +67,11 @@ class VideoDecoder {
 	
 	var pixelBufferPool: CVPixelBufferPool? = nil
 	var pixelBuffer:CVPixelBuffer? = nil
-	// SDL Audio
-	var wanted_spec: SDL_AudioSpec? = nil
-	var au_convert_ctx: OpaquePointer? = nil
-	var out_buffer: UnsafeMutablePointer<UInt8>? = nil
-	var out_buffer_size:Int32 = 0
-	// SDL Video
-	var screenWidth:Int32 = 0
-	var screenHeight:Int32 = 0
-	var screen:OpaquePointer? = nil
-	var screenRender:OpaquePointer? = nil
-	var screenTexture:OpaquePointer? = nil
-	var screenRect:SDL_Rect = SDL_Rect.init()
-	var screenThread:UnsafePointer<SDL_threadID>? = nil
-	var screenEvent:SDL_Event = SDL_Event.init()
 	
 	
 	// 处理放回结果
 	var ret:Int32 = 0
-//	
-//	var pixelBufferPool: CVPixelBufferPool? = nil
+  
 	var fps: CDouble = 0
 	var videoTimeBase: CDouble = 0
 	var isEOF = false
@@ -234,86 +196,12 @@ class VideoDecoder {
 		return true
 	}
 	
-	open func setVideo() {
-
-		// SDL hanlder
-		if SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0 {
-			print("Could not initialize SDL - \(String(describing: SDL_GetError()))\n")
-		}
-		
-		screenWidth = (videoCodecCtx?.pointee.width)!
-		screenHeight = (videoCodecCtx?.pointee.height)!
-		screen = SDL_CreateWindow("Simplest ffmpeg player's Window", Int32(SDL_WINDOWPOS_UNDEFINED_MASK), Int32(SDL_WINDOWPOS_UNDEFINED_MASK), screenWidth, screenHeight, SDL_WINDOW_OPENGL.rawValue);
-		
-		if screen == nil {
-			print("SDL: could not create window - exiting:\(String(describing: SDL_GetError()))\n")
-		}
-		
-		screenRender = SDL_CreateRenderer(screen, -1, 0)
-		//IYUV: Y + U + V  (3 planes)
-		//YV12: Y + V + U  (3 planes)
-		screenTexture = SDL_CreateTexture(screenRender, Uint32(SDL_PIXELFORMAT_IYUV), Int32(SDL_TEXTUREACCESS_STREAMING.rawValue), screenWidth, screenHeight)
-		
-		screenRect.x = 0
-		screenRect.y = 0
-		screenRect.w = screenWidth
-		screenRect.h = screenHeight
-	}
-	
-	
-	open func setAudio() -> Bool {
-		var success = true
-		
-		// SDL hanlder
-		if SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) != 0 {
-			print("Could not initialize SDL - \(String(describing: SDL_GetError()))\n")
-			success =  false
-		}
-		
-		let out_sample_rate:Int32 = 44100
-		let out_channel_layout:UInt64 = UInt64(AV_CH_LAYOUT_STEREO)
-		let out_channels = av_get_channel_layout_nb_channels(out_channel_layout)
-		let out_nb_samples = (audioCodecCtx?.pointee.frame_size)!;
-		let out_sample_fmt:AVSampleFormat = AV_SAMPLE_FMT_S16
-		
-		out_buffer_size = av_samples_get_buffer_size(nil, out_channels, out_nb_samples, out_sample_fmt, 1)
-		let c = av_malloc(Int(MAX_AUDIO_FRAME_SIZE * 2))
-		out_buffer = c?.assumingMemoryBound(to: UInt8.self)
-		
-		wanted_spec = SDL_AudioSpec.init()
-		wanted_spec!.freq = out_sample_rate;
-		wanted_spec!.format = SDL_AudioFormat(AUDIO_S16SYS);
-		wanted_spec!.channels = Uint8(out_channels);
-		wanted_spec!.silence = 0;
-		wanted_spec!.samples =  Uint16(out_nb_samples);
-		wanted_spec!.callback = fill_audio;
-		wanted_spec!.userdata = UnsafeMutableRawPointer(audioCodecCtx);
-		
-		if SDL_OpenAudio(&wanted_spec!, nil) < 0{
-			print("can't open audio.\n");
-			success = false
-		}
-		
-		let in_channel_layout = av_get_default_channel_layout((audioCodecCtx?.pointee.channels)!);
-		//Swr
-		au_convert_ctx = swr_alloc()
-		au_convert_ctx = swr_alloc_set_opts(au_convert_ctx, Int64(out_channel_layout), out_sample_fmt, out_sample_rate, in_channel_layout, (audioCodecCtx?.pointee.sample_fmt)!, (audioCodecCtx?.pointee.sample_rate)!, 0, nil)
-		swr_init(au_convert_ctx);
-		
-		//Play
-		SDL_PauseAudio(0)
-		
-		return success
-	}
-	
 	open func decode(_ minDuaration: Double) -> [VideoFrame] {
-		var frame:UnsafeMutablePointer<AVFrame>? = nil
-		var sw_frame:UnsafeMutablePointer<AVFrame>? = nil
-		var tmp_frame:UnsafeMutablePointer<AVFrame>? = nil
 		let packet = av_packet_alloc()
 		var finished = false
+    
 		var decodedDuration = 0.0
-		var videoResult:[VideoFrame] = []
+    var videoResult:[VideoFrame] = []
 		
 //		let out_buffer = av_malloc(av_image_get_buffer_size(AV_PIX_FMT_YUV420P,  videoCodecCtx?.pointee.width, videoCodecCtx?.pointee.height, 1))
 //		av_image_fill_arrays(tmp_frame?.pointee.data, tmp_frame?.pointee.linesize, out_buffer, AV_PIX_FMT_YUV420P, videoCodecCtx?.pointee.width, videoCodecCtx?.pointee.height, 1)
@@ -328,99 +216,92 @@ class VideoDecoder {
 			}
 			
 			if packet?.pointee.stream_index == audioStreamIndex {
-//				var v = AudioFrame()
-				var ret2:Int32 = avcodec_send_packet(audioCodecCtx, packet);
-				if (ret2 < 0) {
-					print("Error during decoding\n")
-				}
-				while ret2 >= 0 {
-					frame = av_frame_alloc()
-					ret2 = avcodec_receive_frame(audioCodecCtx, frame)
-					if ret2 < 0 {
-						break
-						print("Error while decoding\n")
-					}
-					
-					var data = [UnsafePointer(frame?.pointee.data.0), UnsafePointer(frame?.pointee.data.1), UnsafePointer(frame?.pointee.data.2), UnsafePointer(frame?.pointee.data.3), UnsafePointer(frame?.pointee.data.4), UnsafePointer(frame?.pointee.data.5), UnsafePointer(frame?.pointee.data.6), UnsafePointer(frame?.pointee.data.7)]
-					swr_convert(au_convert_ctx, &out_buffer, MAX_AUDIO_FRAME_SIZE, &data, (frame?.pointee.nb_samples)!);
-					while audio_len > 0 {
-						SDL_Delay(1)
-					}
-					//Audio buffer length
-					audio_len = UInt32(out_buffer_size);
-					//Set audio buffer (PCM data)
-					audio_pos = out_buffer
-					
-				}
 			}
 			
 			if packet?.pointee.stream_index == videoStreamIndex {
-				var ret2:Int32 = avcodec_send_packet(videoCodecCtx, packet);
-				if (ret2 < 0) {
-					print("Error during decoding\n")
-				}
-
-				while ret2 >= 0 {
-					frame = av_frame_alloc()
-					sw_frame = av_frame_alloc()
-
-					if frame == nil || sw_frame == nil {
-						print("Can not alloc frame\n")
-					}
-					ret2 = avcodec_receive_frame(videoCodecCtx, frame)
-
-					if ret2 < 0 {
-						print("Error while decoding\n")
-						break
-					}
-
-					var v = VideoFrame()
-					if frame?.pointee.format == hw_pix_fmt!.rawValue {
-						/* retrieve data from GPU to CPU */
-						ret2 = av_hwframe_transfer_data(sw_frame, frame, 0)
-						if ret2 < 0 {
-							print("Error transferring the data to system memory\n")
-						}
-						tmp_frame = sw_frame;
-					} else {
-						tmp_frame = frame;
-					}
-					var duration = 0.0
-					v.frame = tmp_frame?.pointee
-					v.height = (videoCodecCtx?.pointee.height)!
-					v.width = (videoCodecCtx?.pointee.width)!
-					v.linesize = (tmp_frame?.pointee.linesize.0)!
-
-					let frameDuration = av_frame_get_pkt_duration(tmp_frame)
-					if frameDuration > 0 {
-						duration = Double(frameDuration) * videoTimeBase
-						duration += Double((tmp_frame?.pointee.repeat_pict)!) * videoTimeBase * 0.5
-					} else {
-						duration = 1.0 / fps
-					}
-					duration = 1.0 / fps
-
-					v.duration = duration
-					v.position = Double(av_frame_get_best_effort_timestamp(tmp_frame!)) * videoTimeBase
-					v.buffer = f2i(in: v)
-					videoResult.append(v)
-					decodedDuration += duration
-					if decodedDuration > minDuaration {
-						finished = true
-					}
-				}
+				let (res , d) = decodeVideo(videoCodecCtx, packet)
+        decodedDuration += d
+        videoResult.append(contentsOf: res)
 			}
+      if decodedDuration > minDuaration {
+        finished = true
+      }
 			av_packet_unref(packet)
-			av_frame_unref(frame)
-			av_frame_unref(tmp_frame)
-			av_frame_unref(sw_frame)
 		}
-//		av_frame_free(&frame);
-//		av_frame_free(&tmp_frame)
-//		av_frame_free(&sw_frame)
+//    av_frame_free(&frame);
+//    av_frame_free(&tmp_frame)
+//    av_frame_free(&sw_frame)
 		//
 		return videoResult
 	}
+  
+  private func decodeVideo(_ videoCodecCtx: UnsafeMutablePointer<AVCodecContext>?, _ packet: UnsafeMutablePointer<AVPacket>?) -> ([VideoFrame], Double){
+    var frame:UnsafeMutablePointer<AVFrame>? = nil
+    var sw_frame:UnsafeMutablePointer<AVFrame>? = nil
+    var tmp_frame:UnsafeMutablePointer<AVFrame>? = nil
+    
+    var videoResult:[VideoFrame] = []
+    var decodedDuration = 0.0
+    
+    var ret2:Int32 = avcodec_send_packet(videoCodecCtx, packet);
+    if (ret2 < 0) {
+      print("Error during decoding\n")
+    }
+    
+    while ret2 >= 0 {
+      frame = av_frame_alloc()
+      sw_frame = av_frame_alloc()
+      
+      if frame == nil || sw_frame == nil {
+        print("Can not alloc frame\n")
+      }
+      ret2 = avcodec_receive_frame(videoCodecCtx, frame)
+      
+      if ret2 < 0 {
+        print("Error while decoding:\(ret2) \n")
+        break
+      }
+      
+      var v = VideoFrame()
+      if frame?.pointee.format == hw_pix_fmt!.rawValue {
+        /* retrieve data from GPU to CPU */
+        ret2 = av_hwframe_transfer_data(sw_frame, frame, 0)
+        if ret2 < 0 {
+          print("Error transferring the data to system memory\n")
+        }
+        tmp_frame = sw_frame;
+      } else {
+        tmp_frame = frame;
+      }
+      var duration = 0.0
+      v.frame = tmp_frame?.pointee
+      v.height = (videoCodecCtx?.pointee.height)!
+      v.width = (videoCodecCtx?.pointee.width)!
+      v.linesize = (tmp_frame?.pointee.linesize.0)!
+      
+      let frameDuration = av_frame_get_pkt_duration(tmp_frame)
+      if frameDuration > 0 {
+        duration = Double(frameDuration) * videoTimeBase
+        duration += Double((tmp_frame?.pointee.repeat_pict)!) * videoTimeBase * 0.5
+      } else {
+        duration = 1.0 / fps
+      }
+      duration = 1.0 / fps
+      
+      v.duration = duration
+      v.position = Double(av_frame_get_best_effort_timestamp(tmp_frame!)) * videoTimeBase
+      v.buffer = f2i(in: v)
+      videoResult.append(v)
+      decodedDuration += duration
+    }
+    av_frame_free(&frame)
+    av_frame_free(&tmp_frame)
+    av_frame_free(&sw_frame)
+//    av_frame_unref(frame)
+//    av_frame_unref(tmp_frame)
+//    av_frame_unref(sw_frame)
+    return (videoResult, decodedDuration)
+  }
 	
 	
 	func f2i(in vf: VideoFrame) -> CVPixelBuffer {

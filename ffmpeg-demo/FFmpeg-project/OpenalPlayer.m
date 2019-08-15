@@ -193,6 +193,7 @@
             format = AL_FORMAT_STEREO16;
         }
     }
+  printf("dsdsdsdsd -- %s", data);
     //指定要将数据复制到缓冲区中的数据
     alBufferData(bufferID, format, data, dataSize,aSampleRate);
     if((ret = alGetError()) != AL_NO_ERROR)
