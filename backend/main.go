@@ -1,27 +1,36 @@
 package main
 
 import (
+	config "./config"
 	database "./database"
+	middlewares "./middlewares"
 	routes "./routes"
+	sugar "./sugar"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/viper"
 )
 
 func main() {
 	gin.SetMode(gin.DebugMode)
-	app := gin.Default()
-	// TODO config init
+	app := gin.New()
 
-	// TODO Logs init
+	config.LoadConfig()
 
-	// TODO SQL init
+	sugar.Load()
+
+	app.Use(middlewares.Logger())
+	app.Use(gin.Recovery())
+
+	// connection database
 	database.Start()
-	// TODO set routes
 
-	// TODO users routes
+	app.Use(middlewares.CORSMiddleware())
+	// bind routes
 	user := app.Group("/user")
 	{
 		user.GET("/info/:id", routes.GetUserInfo)
 		user.GET("/list", routes.GetUserList)
+		user.PUT("/register", routes.PutUser)
 	}
 
 	app.GET("/ping", func(c *gin.Context) {
@@ -30,5 +39,12 @@ func main() {
 		})
 	})
 
-	app.Run(":8081") // listen and serve on 0.0.0.0:8080
+	host := viper.GetString("server.host")
+	port := viper.GetString("server.port")
+	link := host + ":" + port
+	app.Run(link)
+}
+
+func initLogger() {
+
 }

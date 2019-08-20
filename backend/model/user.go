@@ -38,7 +38,14 @@ func (User) TableName() string {
 // GetUser for
 func (user *User) GetUser(id string) error {
 	db := database.GetSession()
-	u := User{}
-	db.Limit(1).Offset(0).Find(&u).Where("id = ?", id)
+	// u := User{}
+	db.Limit(1).Offset(0).Find(&user).Where("id = ?", id)
+	return nil
+}
+
+// AddUser for User
+func (user *User) AddUser() error {
+	db := database.GetSession()
+	db.Create(&user)
 	return nil
 }
