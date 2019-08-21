@@ -1,9 +1,6 @@
 package database
 
 import (
-	"fmt"
-
-	// model "../model"
 	sugar "../sugar"
 	"github.com/jinzhu/gorm"
 	"github.com/spf13/viper"
@@ -27,11 +24,11 @@ func Start() {
 
 	MySQLDB = db
 	if err != nil {
-		fmt.Println(err)
+		sugar.Error(err)
 	}
-	defer db.Close()
-
-	db.SetLogger(sugar.GetLogger())
+	// defer db.Close()
+	db.LogMode(true)
+	db.SetLogger(sugar.GetGormLogger())
 }
 
 // GetSession for

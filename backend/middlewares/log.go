@@ -25,11 +25,12 @@ func Logger() gin.HandlerFunc {
 
 		log := sugar.GetLogger()
 
-		log.Infof("| %3d | %13v | %15s | %s  %s |",
+		log.Infof("%v %v %v %v %v\n",
+			method,
 			statusCode,
-			latency,
+			path,
 			clientIP,
-			method, path,
+			latency,
 		)
 	}
 }
